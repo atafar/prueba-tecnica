@@ -21,7 +21,7 @@ export class ListadoHeroesComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.setTableData();
+    this.setTableData(); //TODO: Decidir aquí o ngOnInit
   }
 
   setTableData() {
@@ -33,8 +33,10 @@ export class ListadoHeroesComponent implements OnInit {
   deleteHero(id: number) {
     this.heroService.deleteHero(id);
     this.setTableData();
+  }
 
-    let test = this.heroService.getAllHeroes();
+  addHero() {
+    //TODO: Obtener último id (o el más grande) de la lista para añadirle un número más al nuevo héroe
   }
 
 }

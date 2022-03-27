@@ -9,13 +9,16 @@ import { ListadoHeroesComponent } from './listado-heroes/listado-heroes.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { EditarHeroeComponent } from './editar-heroe/editar-heroe.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListadoHeroesComponent
+    ListadoHeroesComponent,
+    EditarHeroeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
 
   ],
   providers: [HeroService],
