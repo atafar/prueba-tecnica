@@ -32,7 +32,7 @@ export class EditarHeroeComponent implements OnInit {
         // Validators.required,
         // Validators.minLength(3)
       ]],
-      // bio: ['']
+      bio: ['']
     })
   }
 
@@ -48,7 +48,8 @@ export class EditarHeroeComponent implements OnInit {
   getHeroEdited(): Hero {
     return {
       id: 10,
-      name: "Dark Moon"
+      name: "Dark Moon",
+      bio: "Poderes místicos y capa negra"
     }
   }
 
