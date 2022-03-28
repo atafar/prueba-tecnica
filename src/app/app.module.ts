@@ -11,6 +11,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { EditarHeroeComponent } from './editar-heroe/editar-heroe.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +29,11 @@ import { EditarHeroeComponent } from './editar-heroe/editar-heroe.component';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    // FormGroup,
+    // FormBuilder,
+    ReactiveFormsModule 
 
   ],
   providers: [HeroService],

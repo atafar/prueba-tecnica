@@ -5,11 +5,11 @@ import { ListadoHeroesComponent } from './listado-heroes/listado-heroes.componen
 
 export const APP_ROUTES: Routes = [
   { path: '', component: ListadoHeroesComponent },
-  {path: '/edit/:id', component: EditarHeroeComponent}
+  { path: 'edit/:id', component: EditarHeroeComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(APP_ROUTES)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

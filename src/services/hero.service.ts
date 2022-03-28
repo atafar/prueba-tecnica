@@ -51,8 +51,8 @@ export class HeroService {
     return this.heroes;
   }
 
-  getHeroById(id: number) {
-    let foundHero = this.heroes.find(hero => hero.id = id);
+  getHeroById(id: number): Hero {
+    let foundHero = this.heroes.find(hero => hero.id = id) as Hero;
 
     return foundHero;
   }

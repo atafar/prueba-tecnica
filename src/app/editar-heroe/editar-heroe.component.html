@@ -1,1 +1,14 @@
-<p>editar-heroe works!</p>
+<div class="content">
+
+    <form [formGroup]="myForm" class="form-line">
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Nombre" formControlName="name">
+        </mat-form-field>
+
+        <!-- <mat-checkbox class="form-element">Estado activo</mat-checkbox> -->
+
+        <button class="saveButton" (click)="editar()" mat-flat-button color="primary">Aplicar</button>
+    </form>
+
+</div>
