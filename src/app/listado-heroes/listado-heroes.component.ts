@@ -46,8 +46,8 @@ export class ListadoHeroesComponent implements OnInit {
       data: hero
     });
 
-    dialogRef.afterClosed().subscribe(id => {
-      this.deleteHero(id);
+    dialogRef.afterClosed().subscribe(result => {
+      result.delete ? this.deleteHero(result.id) : "";
     });
   }
 

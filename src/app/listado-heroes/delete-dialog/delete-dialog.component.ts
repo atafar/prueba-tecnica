@@ -19,9 +19,5 @@ export class DeleteDialogComponent {
   emitDelete(id: number) {
     this.acceptDelete.emit(id);
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
+  
 }
