@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { EditarHeroeComponent } from './editar-heroe/editar-heroe.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteDialogComponent } from './listado-heroes/delete-dialog/delete-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -20,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     ListadoHeroesComponent,
-    EditarHeroeComponent
+    EditarHeroeComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    // FormGroup,
-    // FormBuilder,
+    MatDialogModule,
     ReactiveFormsModule 
 
   ],

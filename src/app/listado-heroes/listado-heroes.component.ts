@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Hero } from 'src/interfaces/hero.interface';
 import { HeroService } from 'src/services/hero.service';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @Component({
   templateUrl: './listado-heroes.component.html',
@@ -14,7 +16,10 @@ export class ListadoHeroesComponent implements OnInit {
   dataSource: MatTableDataSource<Hero> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     // this.setTableData();
@@ -33,6 +38,17 @@ export class ListadoHeroesComponent implements OnInit {
   deleteHero(id: number) {
     this.heroService.deleteHero(id);
     this.setTableData();
+  }
+
+  openDeleteDialog(hero: Hero): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+      data: hero
+    });
+
+    dialogRef.afterClosed().subscribe(id => {
+      this.deleteHero(id);
+    });
   }
 
   addHero() {
