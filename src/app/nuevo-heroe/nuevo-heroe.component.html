@@ -1,0 +1,32 @@
+<div class="content">
+
+    <form [formGroup]="myForm">
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Nombre" formControlName="name">
+            <mat-error *ngIf="errorHandling('name', 'required')">
+                Debes introducir un <strong>nombre</strong>
+            </mat-error>
+            <mat-error *ngIf="errorHandling('name', 'minLength')">
+                El <strong>nombre</strong> debe tener entre 3 y 15 caracteres.
+            </mat-error>
+            <mat-error *ngIf="errorHandling('name', 'maxLength')">
+                El <strong>nombre</strong> debe tener entre 3 y 15 caracteres.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Descripción</mat-label>
+            <textarea id="editTextArea" maxlength="150" matInput formControlName="bio"></textarea>
+            <mat-error *ngIf="errorHandling('bio', 'maxLength')">
+                La <strong>descripción</strong> no puede contener más de 150 caracteres.
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-checkbox class="form-element">Estado activo</mat-checkbox> -->
+
+        <button class="saveButton" (click)="guardar()" mat-flat-button color="primary"
+            class="form-element">Editar</button>
+    </form>
+
+</div>

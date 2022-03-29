@@ -76,6 +76,12 @@ export class HeroService {
 
   }
 
+  createHero(hero: Hero) {
+    const newId = this.heroes[this.heroes.length - 1].id + 1;
+    hero.id = newId;
+    this.heroes.push(hero);
+  }
+
   editHero(hero: Hero) {
     let originalHero = this.getHeroById(hero.id);
     originalHero = hero;

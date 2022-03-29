@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteDialogComponent } from './listado-heroes/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
 
 
 
@@ -24,7 +25,8 @@ import {MatInputModule} from '@angular/material/input';
     AppComponent,
     ListadoHeroesComponent,
     EditarHeroeComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    NuevoHeroeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     MatInputModule
 
   ],
