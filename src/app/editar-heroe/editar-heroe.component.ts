@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from 'src/interfaces/hero.interface';
 import { HeroService } from 'src/services/hero.service';
 
@@ -11,46 +11,60 @@ import { HeroService } from 'src/services/hero.service';
 export class EditarHeroeComponent implements OnInit {
 
   myForm: FormGroup = this.fb.group({});
+  heroId: number = 0;
 
   constructor(
     public fb: FormBuilder,
     private heroService: HeroService,
-    private route: ActivatedRoute
-   
+    private route: ActivatedRoute,
+    private router: Router
+
   ) { }
 
   ngOnInit(): void {
     this.reactiveForm();
-    const heroId = parseInt(this.route.snapshot.params.id);
-    const data = this.heroService.getHeroById(heroId);
+    this.heroId = parseInt(this.route.snapshot.params.id);
+    const data = this.heroService.getHeroById(this.heroId);
     this.setFormData(data);
   }
 
   reactiveForm() {
     this.myForm = this.fb.group({
       name: ['', [
-        // Validators.required,
-        // Validators.minLength(3)
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
       ]],
-      bio: ['']
+      bio: ['', [
+        Validators.maxLength(150),
+      ]]
     })
   }
 
-  setFormData(data: Hero) {
-    console.log(data);
+  setFormData(hero: Hero) {
+    console.log(hero);
+    this.myForm.controls.name.setValue(hero.name);
+    this.myForm.controls.bio.setValue(hero.bio);
+  }
+
+  guardar() {
+    if (this.myForm.valid) {
+      this.editar();
+    }
   }
 
   editar() {
-    const editedHero = this.getHeroEdited();
+    const editedHero = this.heroService.getHeroById(this.heroId);
+    editedHero.name = this.myForm.value.name;
+    editedHero.bio = this.myForm.value.bio;
     this.heroService.editHero(editedHero);
+
+    this.router.navigate(['/']);
+    console.log(this.heroService.getHeroById(this.heroId));
   }
 
-  getHeroEdited(): Hero {
-    return {
-      id: 10,
-      name: "Dark Moon",
-      bio: "Poderes místicos y capa negra"
-    }
+  public errorHandling = (control: string, error: string) => {
+    return this.myForm.controls[control].hasError(error);
   }
 
 }

@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteDialogComponent } from './listado-heroes/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -35,7 +36,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    MatInputModule
 
   ],
   providers: [HeroService],

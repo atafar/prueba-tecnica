@@ -55,4 +55,9 @@ export class ListadoHeroesComponent implements OnInit {
     //TODO: Obtener último id (o el más grande) de la lista para añadirle un número más al nuevo héroe
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }

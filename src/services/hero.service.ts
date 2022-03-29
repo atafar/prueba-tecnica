@@ -52,7 +52,7 @@ export class HeroService {
   }
 
   getHeroById(id: number): Hero {
-    let foundHero = this.heroes.find(hero => hero.id = id) as Hero;
+    let foundHero = this.heroes.find(hero => hero.id == id) as Hero;
 
     return foundHero;
   }
