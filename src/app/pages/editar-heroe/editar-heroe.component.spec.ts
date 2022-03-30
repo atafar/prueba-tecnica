@@ -19,7 +19,7 @@ describe('EditarHeroeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe existir el componente EditarHeroe', () => {
     expect(component).toBeTruthy();
   });
 });
