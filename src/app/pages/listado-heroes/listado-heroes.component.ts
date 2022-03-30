@@ -26,7 +26,7 @@ export class ListadoHeroesComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.setTableData(); //TODO: Decidir aquí o ngOnInit
+    this.setTableData();
   }
 
   setTableData() {

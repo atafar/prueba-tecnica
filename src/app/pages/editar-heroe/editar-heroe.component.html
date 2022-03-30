@@ -5,7 +5,7 @@
     <form [formGroup]="myForm">
         <mat-form-field appearance="fill" class="form-element form-element-block">
             <mat-label>Nombre</mat-label>
-            <input maxlength="15" minLength="3" type="text" matInput placeholder="Nombre" formControlName="name">
+            <input maxlength="15" minLength="3" type="text" matInput placeholder="Nombre" formControlName="name" upperCaseFormat>
             <mat-error *ngIf="errorHandling('name', 'required')">
                 Debes introducir un <strong>nombre</strong>
             </mat-error>

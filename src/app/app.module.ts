@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NuevoHeroeComponent } from './pages/nuevo-heroe/nuevo-heroe.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { UpperCaseFormatDirective } from './shared/upper-case-format.directive';
 
 
 
@@ -30,7 +31,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     EditarHeroeComponent,
     DeleteDialogComponent,
     NuevoHeroeComponent,
-    NavbarComponent
+    NavbarComponent,
+    UpperCaseFormatDirective
   ],
   imports: [
     BrowserModule,

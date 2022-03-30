@@ -17,7 +17,6 @@ export class NuevoHeroeComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     private heroService: HeroService,
-    private route: ActivatedRoute,
     private router: Router
 
   ) { }
