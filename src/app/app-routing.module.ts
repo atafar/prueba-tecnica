@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditarHeroeComponent } from './editar-heroe/editar-heroe.component';
+import { EditarHeroeComponent } from './pages/editar-heroe/editar-heroe.component';
 import { ListadoHeroesComponent } from './listado-heroes/listado-heroes.component';
 import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
 

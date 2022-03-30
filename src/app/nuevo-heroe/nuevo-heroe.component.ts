@@ -24,9 +24,6 @@ export class NuevoHeroeComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveForm();
-    this.heroId = parseInt(this.route.snapshot.params.id);
-    const data = this.heroService.getHeroById(this.heroId);
-    this.setFormData(data);
   }
 
   reactiveForm() {
@@ -40,12 +37,6 @@ export class NuevoHeroeComponent implements OnInit {
         Validators.maxLength(150),
       ]]
     })
-  }
-
-  setFormData(hero: Hero) {
-    console.log(hero);
-    this.myForm.controls.name.setValue(hero.name);
-    this.myForm.controls.bio.setValue(hero.bio);
   }
 
   guardar() {

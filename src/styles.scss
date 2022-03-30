@@ -7,7 +7,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(80, 80, 80);
+    // background-color: rgb(80, 80, 80);
 }
 
 .content {
@@ -27,5 +27,20 @@ body {
     // margin-right: 2em;
     margin-right: 30px !important;
     width: 165px !important;
-  }
-  
+}
+
+.form-element-block {
+    display: block !important;
+    width: 300px !important;
+    margin-bottom: 30px;
+}
+
+.desc-text-area {
+    min-height: 65px;
+}
+
+.page-title {
+    font-size: 30px !important;
+    font-weight: bold !important;
+    margin-bottom: 40px !important;
+}

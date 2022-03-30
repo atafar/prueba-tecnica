@@ -1,9 +1,11 @@
 <div class="content">
 
+    <h1 class="page-title">Nuevo héroe</h1>
+
     <form [formGroup]="myForm">
-        <mat-form-field appearance="fill" class="form-element">
+        <mat-form-field appearance="fill" class="form-element form-element-block">
             <mat-label>Nombre</mat-label>
-            <input type="text" matInput placeholder="Nombre" formControlName="name">
+            <input maxlength="15" minLength="3" type="text" matInput placeholder="Nombre" formControlName="name">
             <mat-error *ngIf="errorHandling('name', 'required')">
                 Debes introducir un <strong>nombre</strong>
             </mat-error>
@@ -15,9 +17,9 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="form-element">
+        <mat-form-field appearance="fill" class="form-element form-element-block">
             <mat-label>Descripción</mat-label>
-            <textarea id="editTextArea" maxlength="150" matInput formControlName="bio"></textarea>
+            <textarea class="descTextArea" maxlength="150" matInput formControlName="bio"></textarea>
             <mat-error *ngIf="errorHandling('bio', 'maxLength')">
                 La <strong>descripción</strong> no puede contener más de 150 caracteres.
             </mat-error>
@@ -26,7 +28,7 @@
         <!-- <mat-checkbox class="form-element">Estado activo</mat-checkbox> -->
 
         <button class="saveButton" (click)="guardar()" mat-flat-button color="primary"
-            class="form-element">Editar</button>
+            class="form-element form-element-block">Crear héroe</button>
     </form>
 
 </div>
