@@ -53,7 +53,9 @@ export class ListadoHeroesComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    const filteredHeroes = this.heroService.searchHeroes(filterValue.trim().toLowerCase());
+    this.dataSource = new MatTableDataSource(filteredHeroes);
+    this.dataSource.paginator = this.paginator;
   }
 
 }
