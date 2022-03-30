@@ -5,7 +5,7 @@ import { HeroService } from 'src/services/hero.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListadoHeroesComponent } from './listado-heroes/listado-heroes.component';
+import { ListadoHeroesComponent } from './pages/listado-heroes/listado-heroes.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,10 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { EditarHeroeComponent } from './pages/editar-heroe/editar-heroe.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DeleteDialogComponent } from './listado-heroes/delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from './pages/listado-heroes/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
+import { MatInputModule } from '@angular/material/input';
+import { NuevoHeroeComponent } from './pages/nuevo-heroe/nuevo-heroe.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 
@@ -26,7 +29,8 @@ import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
     ListadoHeroesComponent,
     EditarHeroeComponent,
     DeleteDialogComponent,
-    NuevoHeroeComponent
+    NuevoHeroeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
     MatFormFieldModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
 
   ],
   providers: [HeroService],

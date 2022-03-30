@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditarHeroeComponent } from './pages/editar-heroe/editar-heroe.component';
-import { ListadoHeroesComponent } from './listado-heroes/listado-heroes.component';
-import { NuevoHeroeComponent } from './nuevo-heroe/nuevo-heroe.component';
+import { ListadoHeroesComponent } from './pages/listado-heroes/listado-heroes.component';
+import { NuevoHeroeComponent } from './pages/nuevo-heroe/nuevo-heroe.component';
 
 export const APP_ROUTES: Routes = [
   { path: '', component: ListadoHeroesComponent },

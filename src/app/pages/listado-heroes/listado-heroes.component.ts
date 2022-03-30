@@ -42,7 +42,7 @@ export class ListadoHeroesComponent implements OnInit {
 
   openDeleteDialog(hero: Hero): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      width: '250px',
+      width: '350px',
       data: hero
     });
 
