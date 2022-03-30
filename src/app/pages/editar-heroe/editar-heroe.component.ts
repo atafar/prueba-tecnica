@@ -24,8 +24,7 @@ export class EditarHeroeComponent implements OnInit {
   ngOnInit(): void {
     this.reactiveForm();
     this.heroId = parseInt(this.route.snapshot.params.id);
-    const data = this.heroService.getHeroById(this.heroId);
-    this.setFormData(data);
+    this.heroService.getHeroById(this.heroId).subscribe(data => this.setFormData(data));
   }
 
   reactiveForm() {
@@ -49,18 +48,16 @@ export class EditarHeroeComponent implements OnInit {
 
   guardar() {
     if (this.myForm.valid) {
-      this.editar();
+      this.heroService.getHeroById(this.heroId).subscribe(result => this.editarHeroe(result));
     }
   }
 
-  editar() {
-    const editedHero = this.heroService.getHeroById(this.heroId);
+  editarHeroe(result: Hero) {
+    let editedHero = result;
     editedHero.name = this.myForm.value.name;
     editedHero.bio = this.myForm.value.bio;
     this.heroService.editHero(editedHero);
-
     this.router.navigate(['/']);
-    console.log(this.heroService.getHeroById(this.heroId));
   }
 
   public errorHandling = (control: string, error: string) => {

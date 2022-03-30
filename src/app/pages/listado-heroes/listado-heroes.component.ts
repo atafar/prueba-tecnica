@@ -30,7 +30,8 @@ export class ListadoHeroesComponent implements OnInit {
   }
 
   setTableData() {
-    const heroes = this.heroService.getAllHeroes();
+    let heroes;
+    this.heroService.getAllHeroes().subscribe(result => heroes = result);
     this.dataSource = new MatTableDataSource(heroes);
     this.dataSource.paginator = this.paginator;
   }

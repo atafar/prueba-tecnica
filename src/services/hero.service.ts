@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from 'src/interfaces/hero.interface';
 import { AppConstants } from 'src/app/app.constants';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +10,14 @@ export class HeroService {
 
   constructor() { }
 
-  getAllHeroes(): Hero[] {
-    return AppConstants.heroes;
+  getAllHeroes(): Observable<Hero[]> {
+    return of(AppConstants.heroes);
   }
 
-  getHeroById(id: number): Hero {
+  getHeroById(id: number): Observable<Hero> {
     let foundHero = AppConstants.heroes.find(hero => hero.id == id) as Hero;
 
-    return foundHero;
+    return of(foundHero);
   }
 
   searchHeroes(termino: string): Hero[] {
@@ -44,16 +45,21 @@ export class HeroService {
   }
 
   editHero(hero: Hero) {
-    let originalHero = this.getHeroById(hero.id);
-    originalHero = hero;
+    this.getHeroById(hero.id).subscribe(result => {
+      let originalHero = result;
+      originalHero = hero;
+    });
+
+    return of();
   }
 
   deleteHero(heroId: number) {
     let i = 0;
     let heroIndex = 0;
     AppConstants.heroes.forEach(hero => {
-
-      hero.id == heroId ? heroIndex = i : ""
+      if (hero.id == heroId) {
+        heroIndex = i
+      }
       i++;
     });
 
