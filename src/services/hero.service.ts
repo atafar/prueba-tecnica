@@ -1,58 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Hero } from 'src/interfaces/hero.interface';
+import { AppConstants } from 'src/app/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
 
-  private heroes: Hero[] =
-    [
-      {
-        id: 1,
-        name: "Aquaman",
-        bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina."
-      },
-      {
-        id: 2,
-        name: "Batman",
-        bio: "Los rasgos principales de Batman se resumen en «destreza física, habilidades deductivas y obsesión»."
-      },
-      {
-        id: 3,
-        name: "Daredevil",
-        bio: "Al haber perdido la vista, los cuatro sentidos restantes de Daredevil fueron aumentados por la radiación a niveles superhumanos.",
-      },
-      {
-        id: 4,
-        name: "Hulk",
-        bio: "Su principal poder es su capacidad de aumentar su fuerza hasta niveles prácticamente ilimitados a la vez que aumenta su furia.",
-      },
-      {
-        id: 5,
-        name: "Linterna Verde",
-        bio: "Poseedor del anillo de poder que posee la capacidad de crear manifestaciones de luz sólida mediante la utilización del pensamiento.",
-      },
-      {
-        id: 6,
-        name: "Spider-Man",
-        bio: "Tras ser mordido por una araña radiactiva, obtuvo los siguientes poderes sobrehumanos, una gran fuerza, agilidad, poder trepar por paredes.",
-      },
-      {
-        id: 7,
-        name: "Wolverine",
-        bio: "En el universo ficticio de Marvel, Wolverine posee poderes regenerativos que pueden curar cualquier herida, por mortal que ésta sea.",
-      }
-    ];
-
   constructor() { }
 
   getAllHeroes(): Hero[] {
-    return this.heroes;
+    return AppConstants.heroes;
   }
 
   getHeroById(id: number): Hero {
-    let foundHero = this.heroes.find(hero => hero.id == id) as Hero;
+    let foundHero = AppConstants.heroes.find(hero => hero.id == id) as Hero;
 
     return foundHero;
   }
@@ -62,13 +24,12 @@ export class HeroService {
     let heroesArr: Hero[] = [];
     termino = termino.toLowerCase();
 
-    this.heroes.forEach((hero: Hero) => {
+    AppConstants.heroes.forEach((hero: Hero) => {
 
       let nombre = hero.name.toLowerCase();
 
-      if (nombre.indexOf(termino) >= 0) {
-        heroesArr.push(hero)
-      }
+      nombre.indexOf(termino) >= 0 ? heroesArr.push(hero) : ""
+
 
     });
 
@@ -77,9 +38,9 @@ export class HeroService {
   }
 
   createHero(hero: Hero) {
-    const newId = this.heroes[this.heroes.length - 1].id + 1;
+    const newId = AppConstants.heroes[AppConstants.heroes.length - 1].id + 1;
     hero.id = newId;
-    this.heroes.push(hero);
+    AppConstants.heroes.push(hero);
   }
 
   editHero(hero: Hero) {
@@ -90,16 +51,12 @@ export class HeroService {
   deleteHero(heroId: number) {
     let i = 0;
     let heroIndex = 0;
-    this.heroes.forEach(hero => {
-      if (hero.id == heroId) {
-        heroIndex = i;
-      }
+    AppConstants.heroes.forEach(hero => {
 
+      hero.id == heroId ? heroIndex = i : ""
       i++;
     });
 
-    this.heroes.splice(heroIndex, 1);
-    console.log(i)
-    console.log(this.heroes);
+    AppConstants.heroes.splice(heroIndex, 1);
   }
 }

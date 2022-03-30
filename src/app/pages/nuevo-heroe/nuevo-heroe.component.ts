@@ -40,9 +40,9 @@ export class NuevoHeroeComponent implements OnInit {
   }
 
   guardar() {
-    if (this.myForm.valid) {
-      this.nuevoHeroe();
-    }
+
+    this.myForm.valid ? this.nuevoHeroe() : "";
+
   }
 
   nuevoHeroe() {
