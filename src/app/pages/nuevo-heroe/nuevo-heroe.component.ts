@@ -54,9 +54,8 @@ export class NuevoHeroeComponent implements OnInit {
       bio: this.myForm.value.bio
     }
     this.heroService.createHero(newHero);
-
     this.router.navigate(['/']);
-    console.log(this.heroService.getHeroById(this.heroId));
+
   }
 
   public errorHandling = (control: string, error: string) => {

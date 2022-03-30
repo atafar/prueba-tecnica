@@ -19,7 +19,7 @@
 
         <mat-form-field appearance="fill" class="form-element form-element-block">
             <mat-label>Descripción</mat-label>
-            <textarea class="descTextArea" maxlength="150" matInput formControlName="bio"></textarea>
+            <textarea class="desc-text-area" maxlength="150" matInput formControlName="bio"></textarea>
             <mat-error *ngIf="errorHandling('bio', 'maxLength')">
                 La <strong>descripción</strong> no puede contener más de 150 caracteres.
             </mat-error>

@@ -20,7 +20,7 @@ export class HeroService {
     return of(foundHero);
   }
 
-  searchHeroes(termino: string): Hero[] {
+  searchHeroes(termino: string): Observable<Hero[]> {
 
     let heroesArr: Hero[] = [];
     termino = termino.toLowerCase();
@@ -34,7 +34,7 @@ export class HeroService {
 
     });
 
-    return heroesArr;
+    return of(heroesArr);
 
   }
 
@@ -42,6 +42,8 @@ export class HeroService {
     const newId = AppConstants.heroes[AppConstants.heroes.length - 1].id + 1;
     hero.id = newId;
     AppConstants.heroes.push(hero);
+
+    return of();
   }
 
   editHero(hero: Hero) {
@@ -64,5 +66,7 @@ export class HeroService {
     });
 
     AppConstants.heroes.splice(heroIndex, 1);
+
+    return of();
   }
 }
