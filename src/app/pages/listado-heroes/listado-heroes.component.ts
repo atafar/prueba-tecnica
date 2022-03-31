@@ -10,7 +10,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
   templateUrl: './listado-heroes.component.html',
   styleUrls: ['./listado-heroes.component.scss']
 })
-export class ListadoHeroesComponent implements OnInit {
+export class ListadoHeroesComponent {
 
   displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'opciones'];
   dataSource: MatTableDataSource<Hero> = new MatTableDataSource();
@@ -20,10 +20,6 @@ export class ListadoHeroesComponent implements OnInit {
     private heroService: HeroService,
     public dialog: MatDialog
   ) { }
-
-  ngOnInit(): void {
-    // this.setTableData();
-  }
 
   ngAfterViewInit() {
     this.setTableData();

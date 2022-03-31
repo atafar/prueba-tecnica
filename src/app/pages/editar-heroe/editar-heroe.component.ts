@@ -41,7 +41,6 @@ export class EditarHeroeComponent implements OnInit {
   }
 
   setFormData(hero: Hero) {
-    console.log(hero);
     this.myForm.controls.name.setValue(hero.name);
     this.myForm.controls.bio.setValue(hero.bio);
   }

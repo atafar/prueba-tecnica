@@ -7,16 +7,13 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    // background-color: rgb(80, 80, 80);
 }
 
 .content {
-    // background-color: red;
     padding: 50px;
 }
 
 .form-line {
-    // display: flex;
     padding: 20px 0;
     align-items: baseline;
 }
@@ -24,7 +21,6 @@ body {
 .form-element {
     font-size: 16px !important;
     font-weight: 500 !important;
-    // margin-right: 2em;
     margin-right: 30px !important;
     width: 165px !important;
 }
